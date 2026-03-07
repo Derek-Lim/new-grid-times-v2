@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Menu, Search, User } from 'react-feather';
 
-import { QUERIES, COLORS, WEIGHTS, FAMILIES } from '../../constants';
+import { QUERIES } from '../../constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Logo from '../Logo';
@@ -38,10 +38,10 @@ const Header = () => {
           </button>
         </DesktopActionGroup>
         <Logo />
-        <SubscriptionCtaGroup>
-          <SubscribeButton>subscribe</SubscribeButton>
-          <SubscriptionHelpLink>Already a subscriber?</SubscriptionHelpLink>
-        </SubscriptionCtaGroup>
+        <SubscribeWrapper>
+          <Button>Subscribe</Button>
+          <SubLink href="/">Already a subscriber?</SubLink>
+        </SubscribeWrapper>
       </MainHeader>
     </header>
   );
@@ -52,7 +52,7 @@ const SuperHeader = styled.div`
   background: var(--color-gray-900);
   color: white;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: none;
   }
 `;
@@ -75,6 +75,35 @@ const ActionGroup = styled.div`
   }
 `;
 
+const DesktopActionGroup = styled(ActionGroup)`
+  display: none;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+  }
+`;
+
+const SubscribeWrapper = styled.div`
+  display: none;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: revert;
+    position: relative;
+    justify-self: end;
+  }
+`;
+
+const SubLink = styled.a`
+  position: absolute;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-gray-900);
+  font-style: italic;
+  text-decoration: underline;
+`;
+
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
@@ -82,40 +111,20 @@ const MainHeader = styled(MaxWidthWrapper)`
   margin-top: 32px;
   margin-bottom: 48px;
 
-  @media ${QUERIES.desktopAndUp} {
-    justify-content: space-between;
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
   }
-`;
 
-const DesktopActionGroup = styled(ActionGroup)`
-  display: none;
-
-  @media ${QUERIES.desktopAndUp} {
-    display: flex;
+  @media ${QUERIES.laptopAndUp} {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: revert;
+    justify-items: start;
+    margin-top: 16px;
+    margin-bottom: 72px;
   }
-`;
-
-const SubscriptionCtaGroup = styled(DesktopActionGroup)`
-  flex-direction: column;
-  align-items: center;
-  align-self: flex-end;
-  gap: 8px;
-`;
-
-const SubscribeButton = styled.button`
-  background-color: ${COLORS.primary};
-  color: ${COLORS.white};
-  font-weight: ${WEIGHTS.bold};
-  font-family: ${FAMILIES.sansSerif};
-  font-size: 1rem;
-  text-transform: uppercase;
-  border-radius: 4px;
-  padding: 8px 24px;
-`;
-
-const SubscriptionHelpLink = styled.a`
-  text-decoration: underline;
-  font-size: 0.875rem;
 `;
 
 export default Header;

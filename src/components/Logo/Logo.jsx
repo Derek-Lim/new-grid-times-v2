@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import format from 'date-fns/format';
+
 import { QUERIES } from '../../constants';
 
 const Logo = (props) => {
@@ -9,9 +10,7 @@ const Logo = (props) => {
       <Link href="/" {...props}>
         New Grid Times
       </Link>
-      <TodaysDate>
-        {format(new Date(), 'EEEE, MMMM do, yyyy')}
-      </TodaysDate>
+      <TodaysDate>{format(new Date(), 'EEEE, MMMM do, yyyy')}</TodaysDate>
     </Wrapper>
   );
 };
@@ -24,7 +23,7 @@ const Link = styled.a`
   font-family: var(--font-family-logo);
   font-size: 3rem;
 
-  @media ${QUERIES.laptopAndUp} {
+  @media ${QUERIES.tabletAndUp} {
     font-size: 4rem;
   }
 `;
