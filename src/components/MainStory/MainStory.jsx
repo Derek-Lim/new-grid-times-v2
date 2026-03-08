@@ -1,15 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { QUERIES } from '../../constants';
 
-const MainStory = ({
-  id,
-  title,
-  image,
-  location,
-  abstract,
-  ...delegated
-}) => {
+const MainStory = ({ id, title, image, location, abstract, ...delegated }) => {
   return (
     <Wrapper {...delegated}>
       <a href={`/story/${id}`}>
@@ -48,14 +42,15 @@ const Abstract = styled.p`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 8;
+
+  /* Necessary for line-clamping */
   overflow: hidden;
 
   @media ${QUERIES.tabletAndUp} {
     -webkit-line-clamp: 16;
   }
-  
-  @media ${QUERIES.desktopAndUp} {
-    -webkit-line-clamp: 8;
+  @media ${QUERIES.laptopAndUp} {
+    -webkit-line-clamp: 10;
   }
 `;
 
