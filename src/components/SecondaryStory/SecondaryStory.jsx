@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import CardLink from '../CardLink';
+
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <a href={`/story/${id}`}>
+    <CardLink href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </a>
+    </CardLink>
   );
 };
 

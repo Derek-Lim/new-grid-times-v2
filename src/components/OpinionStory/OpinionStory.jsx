@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import CardLink from '../CardLink';
+
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
-    <a href={`/story/${id}`}>
+    <CardLink href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
@@ -11,7 +13,7 @@ const OpinionStory = ({ id, title, author, avatar }) => {
           <ArticleTitle>{title}</ArticleTitle>
         </div>
       </Wrapper>
-    </a>
+    </CardLink>
   );
 };
 
