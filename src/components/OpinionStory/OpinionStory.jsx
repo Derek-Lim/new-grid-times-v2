@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CardLink from '../CardLink';
+import { QUERIES } from '../../constants';
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
@@ -19,6 +20,18 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
+  display: flex;
+  gap: 20px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: revert;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    display: flex;
+  }
 `;
 
 const Avatar = styled.img`
