@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { QUERIES } from '../../constants';
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
@@ -26,11 +27,11 @@ const Wrapper = styled.article`
   color: var(--color-gray-900);
 
   @media ${QUERIES.tabletOnly} {
-    grid-template-columns: 1fr;
     grid-template-areas:
       'image'
       'heading'
       'abstract';
+    grid-template-columns: 1fr;
   }
 `;
 
