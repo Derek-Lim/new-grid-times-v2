@@ -1,10 +1,11 @@
 import React from 'react';
 import { Twitter, Facebook } from 'react-feather';
 import styled from 'styled-components';
-import MaxWidthWrapper from '../MaxWidthWrapper';
 
-import VisuallyHidden from '../VisuallyHidden';
 import { QUERIES } from '../../constants';
+
+import MaxWidthWrapper from '../MaxWidthWrapper';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Footer = () => {
   return (
@@ -144,8 +145,8 @@ const TopRow = styled.div`
 
   @media ${QUERIES.tabletAndUp} {
     flex-direction: row;
-    gap: 48px;
     justify-content: center;
+    gap: 48px;
   }
 
   @media ${QUERIES.laptopAndUp} {
@@ -181,6 +182,7 @@ const MainNavArea = styled.div`
   @media ${QUERIES.tabletAndUp} {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    flex-direction: revert;
     text-align: left;
   }
 `;
@@ -190,6 +192,10 @@ const MainNavHeading = styled.h2`
   font-weight: var(--font-weight-bold);
   color: var(--color-gray-300);
   margin-bottom: 8px;
+
+  @media ${QUERIES.laptopAndUp} {
+    align-items: flex-start;
+  }
 `;
 
 const MainNavList = styled.ul`
@@ -212,7 +218,6 @@ const Subfooter = styled.div`
 
   @media ${QUERIES.laptopAndUp} {
     align-items: flex-start;
-    padding-left: 88px;
   }
 `;
 
